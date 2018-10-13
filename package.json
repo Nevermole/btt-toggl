@@ -1,6 +1,6 @@
 {
   "name": "btt-toggl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A BTT plugin for toggl",
   "main": "index.js",
   "author": "Daniel Rutkovsky - daniel.rutkovsky@synetech.cz",
