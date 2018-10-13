@@ -1,7 +1,9 @@
 # Toggl script for BTT
 
 ## Install
-Just run `npm install -g btt-toggl` it will ask for your API token to communicate with the Toggl API. 
+Run `npm install -g btt-toggl` it will ask for your API token to communicate with the Toggl API. 
+And then copy and paste generated JSON from command line into BTT.
+Done
 
 ## Functionality
 
