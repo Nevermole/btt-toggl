@@ -1,0 +1,29 @@
+{
+  "BTTWidgetName" : "Toggl",
+  "BTTTriggerType" : 642,
+  "BTTTriggerTypeDescription" : "Shell Script \/ Task Widget",
+  "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+  "BTTPredefinedActionType" : 206,
+  "BTTPredefinedActionName" : "Execute Shell Script \/ Task",
+  "BTTShellTaskActionScript" : "[TOUCH ACTION]",
+  "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::Toggle Toggl",
+  "BTTShellScriptWidgetGestureConfig" : "\/bin\/bash:::-c",
+  "BTTEnabled2" : 1,
+  "BTTUUID" : "E2B7204A-A2DF-491A-8F5B-DD234F3CE11D",
+  "BTTEnabled" : 1,
+  "BTTOrder" : 1,
+  "BTTIconData": "",
+  "BTTTriggerConfig" : {
+    "BTTTouchBarScriptUpdateInterval" : 20,
+    "BTTTouchBarFreeSpaceAfterButton" : 5,
+    "BTTTouchBarButtonCornerRadius" : 6,
+    "BTTTouchBarAppleScriptStringRunOnInit" : true,
+    "BTTTouchBarItemPlacement" : 2,
+    "BTTTouchBarShellScriptString" : "[PERIODIC ACTION]",
+    "BTTTouchBarButtonColor" : "75.323769, 75.323769, 75.323769, 255.000000",
+    "BTTTouchBarItemIconHeight" : 22,
+    "BTTTouchBarItemIconWidth" : 22,
+    "BTTTouchBarItemPadding" : 0,
+    "BTTTouchBarAlternateBackgroundColor" : "128.829533, 128.829533, 128.829533, 255.000000"
+  }
+}

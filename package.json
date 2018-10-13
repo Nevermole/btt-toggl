@@ -1,0 +1,23 @@
+{
+  "name": "btt-toggl",
+  "version": "1.0.0",
+  "description": "A BTT plugin for toggl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Rutkovsky - daniel.rutkovsky@synetech.cz",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.11.7",
+    "axios": "^0.18.0",
+    "moment": "^2.22.2"
+  },
+  "scripts" : {
+    "preinstall": "./getTogglToken.sh",
+    "postinstall": "./createBetterTouchToolJson.sh"
+  },
+  "bin": {
+    "btt-toggl": "index.js"
+  }
+}

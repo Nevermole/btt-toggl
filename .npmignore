@@ -1,0 +1,5 @@
+token.json
+current.json
+*.tgz
+docs/
+README.md
