@@ -6,7 +6,9 @@
   "author": "Daniel Rutkovsky - daniel.rutkovsky@synetech.cz",
   "license": "MIT",
   "keywords": [
-    "btt", "BetterTouchTool", "Toggl"
+    "btt",
+    "BetterTouchTool",
+    "Toggl"
   ],
   "homepage": "https://github.com/Nevermole/btt-toggl/blob/master/README.md",
   "repository": {
@@ -14,16 +16,16 @@
     "url": "https://github.com/Nevermole/btt-toggl"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "@types/node": "^10.11.7",
-    "axios": "^0.18.0",
-    "moment": "^2.22.2"
-  },
-  "scripts" : {
     "preinstall": "./getTogglToken.sh",
     "postinstall": "./createBetterTouchToolJson.sh"
+  },
+  "dependencies": {
+    "@types/moment-duration-format": "^2.2.2",
+    "@types/node": "^10.14.20",
+    "axios": "^0.18.1",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.3.2",
+    "toggl-api": "^1.0.1"
   },
   "bin": {
     "btt-toggl": "index.js"
