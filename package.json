@@ -29,5 +29,8 @@
   },
   "bin": {
     "btt-toggl": "index.js"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.0-beta"
   }
 }

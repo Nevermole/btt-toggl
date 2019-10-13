@@ -52,12 +52,10 @@ async function getCurrentTimeEntry(): Promise<TimeEntry | null> {
     let config = requestConfig('https://www.toggl.com/api/v8/time_entries/current')
 
     const result: any = await axios(config)
-    if (!result.data && !result.data.data) {
-        return null
-    } else {
-        saveEntry(result.data.data)
-        return result.data.data
-    }
+    let entry = result?.data?.data;
+
+    saveEntry(entry)
+    return entry
 }
 
 async function getLastMeaningfulTimeEntry(): Promise<TimeEntry> {
@@ -96,11 +94,7 @@ async function startATimeEntry(): Promise<TimeEntry | null> {
     config["data"] = entry
 
     const result: any = await axios(config)
-    if (!result.data && !result.data.data) {
-        return null
-    } else {
-        return result.data.data
-    }
+    return result?.data?.data
 }
 
 async function stopATimeEntry(current: TimeEntry): Promise<void> {
@@ -123,7 +117,7 @@ function truncated(str: string) {
 function getDuration(current: TimeEntry) {
     let start = Date.parse(current.start)
     const duration = moment.duration(Date.now().valueOf() - start.valueOf())
-    return duration.format("h:mm", {trim : false})
+    return duration.format("h:mm", {trim: false})
 }
 
 async function generateStatus(entry: TimeEntry | null = null) {
