@@ -18,6 +18,7 @@ interface TimeEntry {
     duration: number
     description: string
     start: string
+    tags: Array<string>
     id: string
     pid: string
     wid: string
@@ -81,9 +82,11 @@ async function startATimeEntry(): Promise<TimeEntry | null> {
         }
     }
     if (current) {
-        entry.time_entry.pid = current.pid
-        entry.time_entry.wid = current.wid
-        entry.time_entry.description = current.description
+        let timeEntry = entry.time_entry;
+        timeEntry.pid = current.pid
+        timeEntry.wid = current.wid
+        timeEntry.description = current.description
+        timeEntry.tags = current.tags
     }
 
     let config = requestConfig(
