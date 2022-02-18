@@ -16,6 +16,7 @@
     "url": "https://github.com/Nevermole/btt-toggl"
   },
   "scripts": {
+    "build": "tsc",
     "preinstall": "./getTogglToken.sh",
     "postinstall": "./createBetterTouchToolJson.sh"
   },
