@@ -12,6 +12,8 @@ const currentFileName = __dirname + '/current.json'
 const inactiveIcon = __dirname + '/inactive.png'
 const activeIcon = __dirname + '/active.png'
 
+const apiV8 = 'https://api.track.toggl.com/api/v8'
+
 const limit = 32
 
 interface TimeEntry {
@@ -49,7 +51,7 @@ function saveEntry(entry: TimeEntry) {
 }
 
 async function getCurrentTimeEntry(): Promise<TimeEntry | null> {
-    let config = requestConfig('https://www.toggl.com/api/v8/time_entries/current')
+    let config = requestConfig(`${apiV8}/time_entries/current`)
 
     const result: any = await axios(config)
     let entry = result?.data?.data;
@@ -59,7 +61,7 @@ async function getCurrentTimeEntry(): Promise<TimeEntry | null> {
 }
 
 async function getLastMeaningfulTimeEntry(): Promise<TimeEntry> {
-    let config = requestConfig('https://www.toggl.com/api/v8/time_entries')
+    let config = requestConfig(`${apiV8}/time_entries`)
     const result: any = await axios(config)
     let entries: Array<TimeEntry> = result.data
 
@@ -88,7 +90,7 @@ async function startATimeEntry(): Promise<TimeEntry | null> {
     }
 
     let config = requestConfig(
-        'https://www.toggl.com/api/v8/time_entries/start',
+        `${apiV8}/time_entries/start`,
         'POST',
         jsonHeader)
     config["data"] = entry
@@ -99,7 +101,7 @@ async function startATimeEntry(): Promise<TimeEntry | null> {
 
 async function stopATimeEntry(current: TimeEntry): Promise<void> {
     await axios(requestConfig(
-        `https://www.toggl.com/api/v8/time_entries/${current.id}/stop`, 'PUT', jsonHeader))
+        `${apiV8}/time_entries/${current.id}/stop`, 'PUT', jsonHeader))
 }
 
 function truncated(str: string) {
@@ -143,20 +145,20 @@ async function toggle() {
     const current = await getCurrentTimeEntry()
     if (current) {
         await stopATimeEntry(current)
-        return await generateStatus()
+        return generateStatus()
     } else {
         let entry = await getLastMeaningfulTimeEntry()
         saveEntry(entry)
 
         const timeEntry = await startATimeEntry()
-        return await generateStatus(timeEntry)
+        return generateStatus(timeEntry)
     }
 }
 
 let outputResult = (status: any) => console.log(JSON.stringify(status))
 
 if (process.argv.indexOf('toggle') !== -1) {
-    toggle().then(outputResult)
+    toggle().then(outputResult).catch(console.error)
 } else {
-    generateStatus().then(outputResult)
+    generateStatus().then(outputResult).catch(console.error)
 }
